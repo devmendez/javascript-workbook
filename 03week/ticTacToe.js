@@ -26,11 +26,11 @@ function printBoard() {
 function horizontalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
-    console.log (true);
+    return true;
   } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
-    console.log (true);
+    return true;
   } else if (board [2][0] === playerTurn && board [2][1] === playerTurn && board [2][2] === playerTurn) {
-    console.log (true);
+    return true;
   }else {
     return false
   }
@@ -39,11 +39,11 @@ function horizontalWin() {
 function verticalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
-    console.log (true);
+    return true;
  } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
-console.log(true);
+  return true;
  } else if (board [0][2] === playerTurn && board [1][2] === playerTurn && board [2][2] === playerTurn) {
-   console.log(true);
+  return true;
  }else {
    return false
  }
@@ -52,9 +52,9 @@ console.log(true);
 function diagonalWin() {
   // Your code here
   if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn ) {
-    console.log (true);
+    return true;
   } else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
-    console.log (true);
+    return true;
   } else {
     return false
   }
@@ -62,11 +62,16 @@ function diagonalWin() {
 
 function checkForWin() {
   // Your code here
-  if (horizontalWin(row, column)) {
+  if (horizontalWin()) {
+    return true;
     console.log('Horizontal Win!');
-  } else if (verticalWin(row, column)) {
+   
+  } else if (verticalWin()) {
+    return true;
     console.log('Vertical Win!');
-  } else if (diagonalWin(row, column)) {
+    
+  } else if (diagonalWin()) {
+    return true;
     console.log('Diagonal Win!'); 
   } else {
     return false
@@ -74,16 +79,16 @@ function checkForWin() {
 }
 
 const checkValidEntry = (row, column) => {
-  if ((row === '0' || row === '1' || row === '2') && (column === '0' || column === '1' || column === '2') && (board[row][column] === ' ')) {
-    return true
+  if ((row == '0' || row == '1' || row == '2') && (column == '0' || column == '1' || column == '2') && (board[row][column] == ' ')) {
+    return true;
     } else {
     return false
     }
   }
 
   const switchPlayer = (row, column) => {
-    if (playerTurn === 'X') {
-      playerTurn = '0'
+    if (playerTurn == 'X') {
+      playerTurn = 'O'
       } else {
       playerTurn = 'X'
       }
