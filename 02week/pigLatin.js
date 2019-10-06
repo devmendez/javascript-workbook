@@ -9,10 +9,27 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+    let newWord = word.trim().toLowerCase(); //trimming word and making it all lowercase
+  
+    let vowels = "aeiou"; //defines the vowels
+  
+    function vowelsDetected(newWord) {
+      for (let i = 0; i < newWord.length; i++) {
+        if (vowels.indexOf(newWord[i]) !== -1) {
+          return i;
+        }
+      }
+    }
+  
+    let firstVowel = vowelsDetected(newWord);
+    if (firstVowel > 0) {
+      return newWord.slice(firstVowel) + newWord.slice(0, firstVowel) + "ay";
+    } else {
+      return newWord + "yay";
+    }
+  }
 
-  // Your code here
 
-}
 
 
 function getPrompt() {
