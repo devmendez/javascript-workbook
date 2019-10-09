@@ -20,20 +20,20 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  // Your code here
+  // Moving each piece to another stack to end up all on stack c to win
   let move = stacks[startStack].pop();
   console.log(move);
   stacks[endStack].push(move);
 }
 
 function isLegal(startStack, endStack) {
-  // Your code here
+  // logic for valid moves to be able to move pieces
   if (
     (startStack == "a" || startStack == "b" || startStack == "c") &&
     (endStack == "a" || endStack == "b" || endStack == "c")
   ) {
-    let lastStart = stacks[startStack].length - 1;
-    let lastEnd = stacks[endStack].length - 1;
+    let Start = stacks[startStack].length - 1;
+    let End = stacks[endStack].length - 1;
 
     const moveTo = stacks[endStack];
     const moveFrom = stacks[startStack];
@@ -51,7 +51,7 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  // Your code here
+  // If all pieces are on stack c, you win!
   if (stacks.c.length === 4) {
     console.log("You Win!");
     return true;
@@ -61,7 +61,7 @@ function checkForWin() {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // Pulling all code together for game logic
   if (isLegal(startStack, endStack) === true) {
     movePiece(startStack, endStack);
     checkForWin(startStack, endStack);
