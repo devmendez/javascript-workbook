@@ -86,7 +86,7 @@ for (var i = 0; i < arrayOfPersons.length; i++) {
   var date = new Date(dob);
   var year = date.getFullYear();
 
-  const bornBeforeNinety = arrayOfPersons.filter(birthyear => year < "1990");
+  const bornBeforeNinety = arrayOfPersons.filter(birthyear => year < 1990);
 
   console.log(bornBeforeNinety);
 }
