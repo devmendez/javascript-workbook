@@ -1,7 +1,5 @@
 "use strict";
 
-import { sign } from "crypto";
-
 const arrOfPeople = [
   {
     id: 2,
@@ -58,6 +56,7 @@ const listOfPlayers = [];
 const blueTeam = [];
 const redTeam = [];
 
+//defining class of a player
 class player {
   constructor(id, name, age, skillSet, placeBorn) {
     this.id = id;
@@ -69,12 +68,24 @@ class player {
   }
 }
 
+//defining class of a team
 class Team {
   constructor(name, mascot, color) {
     this.name = name;
     this.mascot = mascot;
     this.color = color;
     this.teammates = [];
+  }
+}
+
+//defining class of a Dodge Ball Player
+class dodgeBallPlayer {
+  constructor(canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
+    this.canThrowBall = canThrowBall;
+    this.canDodgeBall = canDodgeBall;
+    this.hasPaid = hasPaid;
+    this.isHealthy = isHealthy;
+    this.yearsExperience = yearsExperience;
   }
 }
 
