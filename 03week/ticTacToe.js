@@ -25,22 +25,83 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[0][1] === playerTurn && board[0][2] === playerTurn) {
+    return true;
+  } else if (board[1][0] === playerTurn && board[1][1] === playerTurn && board[1][2] === playerTurn) {
+    return true;
+  } else if (board [2][0] === playerTurn && board [2][1] === playerTurn && board [2][2] === playerTurn) {
+    return true;
+  }else {
+    return false
+  }
 }
 
 function verticalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[1][0] === playerTurn && board[2][0] === playerTurn) {
+    return true;
+ } else if (board[0][1] === playerTurn && board[1][1] === playerTurn && board[2][1] === playerTurn) {
+  return true;
+ } else if (board [0][2] === playerTurn && board [1][2] === playerTurn && board [2][2] === playerTurn) {
+  return true;
+ }else {
+   return false
+ }
 }
 
 function diagonalWin() {
   // Your code here
+  if (board[0][0] === playerTurn && board[1][1] === playerTurn && board[2][2] === playerTurn ) {
+    return true;
+  } else if (board[0][2] === playerTurn && board[1][1] === playerTurn && board[2][0] === playerTurn) {
+    return true;
+  } else {
+    return false
+  }
 }
 
 function checkForWin() {
   // Your code here
+  if (horizontalWin()) {
+    return true;
+    console.log('Horizontal Win!');
+   
+  } else if (verticalWin()) {
+    return true;
+    console.log('Vertical Win!');
+    
+  } else if (diagonalWin()) {
+    return true;
+    console.log('Diagonal Win!'); 
+  } else {
+    return false
+  }
 }
+
+const checkValidEntry = (row, column) => {
+  if ((row == '0' || row == '1' || row == '2') && (column == '0' || column == '1' || column == '2') && (board[row][column] == ' ')) {
+    return true;
+    } else {
+    return false
+    }
+  }
+
+  const switchPlayer = (row, column) => {
+    if (playerTurn == 'X') {
+      playerTurn = 'O'
+      } else {
+      playerTurn = 'X'
+      }
+    }
 
 function ticTacToe(row, column) {
   // Your code here
+  if (checkValidEntry(row, column)) {
+    board[row][column]= playerTurn;
+    switchPlayer(row, column)
+    } else {
+      console.log("Invalid entry");
+    }
 }
 
 function getPrompt() {
