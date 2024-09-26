@@ -20,14 +20,14 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  // Moving each piece to another stack to end up all on stack c to win
+  // Moving each block to another stack
   let move = stacks[startStack].pop();
   console.log(move);
   stacks[endStack].push(move);
 }
 
 function isLegal(startStack, endStack) {
-  // logic for valid moves to be able to move pieces
+  // logic for valid moves to be able to move block
   if (
     (startStack == "a" || startStack == "b" || startStack == "c") &&
     (endStack == "a" || endStack == "b" || endStack == "c")
@@ -51,8 +51,8 @@ function isLegal(startStack, endStack) {
 }
 
 function checkForWin() {
-  // If all pieces are on stack c, you win!
-  if (stacks.c.length === 4) {
+  // If all pieces are on a stack with largest on bottom to smallest on top, you win!
+  if (stacks.c.length === 4 || stacks.b.length === 4) {
     console.log("You Win!");
     return true;
   } else {
@@ -112,6 +112,22 @@ if (typeof describe === "function") {
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
+    });
+  });
+  // more unit tests
+  describe("#countNumberOfMoves()", () => {
+    it("counts a move each time a block is moved", () => {
+      assert.equal(countNumberOfMoves(), true);
+    });
+  });
+  describe("#moreTurns()", () => {
+    it("should determine game still has more turns", () => {
+      assert.equal(moreTurns(), true);
+    });
+  });
+  describe("#moreTurns()", () => {
+    it("should determine game has no more turns", () => {
+      assert.equal(moreTurns(), false);
     });
   });
 } else {
