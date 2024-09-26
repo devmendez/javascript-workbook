@@ -1,0 +1,11 @@
+h1 {
+  color: rgb(228, 95, 117);
+  text-align: center;
+  border: solid black 2px;
+  padding: 20px;
+}
+section {
+  background-color: pink;
+  padding: 20px;
+  margin: 0;
+}
